@@ -1,0 +1,9 @@
+{
+  "repository": "PlayBoardgameTogether/playboard-game-gomoku",
+  "assets": [
+    {
+      "id": "online.gomoku",
+      "archive": "gomoku"
+    }
+  ]
+}

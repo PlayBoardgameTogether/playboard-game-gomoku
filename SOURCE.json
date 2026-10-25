@@ -1,0 +1,37 @@
+{
+  "repository": "PlayBoardgameTogether/PlayBoardgameTogether",
+  "commit": "a7e36d32e2febeb5bd7013752f099d01d0502316",
+  "game": "gomoku",
+  "platformVersion": "0.17.0",
+  "sdkVersion": "0.1.0",
+  "ownedFiles": [
+    "game-packages/gomoku/README.md",
+    "game-packages/gomoku/art/background.svg",
+    "game-packages/gomoku/art/cover.svg",
+    "game-packages/gomoku/art/icon.svg",
+    "game-packages/gomoku/client.html",
+    "game-packages/gomoku/game.json",
+    "game-packages/gomoku/server.txt",
+    "scripts/package-gomoku.mjs",
+    "tests/unit/gomoku-package.test.ts"
+  ],
+  "files": {
+    "game-packages/gomoku/README.md": "be091fd567ede67ddb733a994e6969c786ef4f3257e631077f9dfa10f2d714d6",
+    "game-packages/gomoku/art/background.svg": "854e438a91b1c2bf9977a021135258472c5526beaef0ed124af634702198b175",
+    "game-packages/gomoku/art/cover.svg": "b968b80ff38766e5384ac55c6011a8ec916e8f2c1e7ac711ac971cb6704b504d",
+    "game-packages/gomoku/art/icon.svg": "010e8d787d957941b9661546f745a50d42e59863dd8c3a86a26b6eb3181d2fbb",
+    "game-packages/gomoku/client.html": "94dfa425553e582e9f28425cd26d0c823454bbe4fbf7c6ec0bb5737a3f3ea888",
+    "game-packages/gomoku/game.json": "22163f1c555d9572205d5d2ae9b2a36a8056b36a381919fa1787e6a137f281cb",
+    "game-packages/gomoku/server.txt": "fb316de7f1cbf987d34c022a0dfc99acc27bb910044e08e4da37d719ea519e85",
+    "scripts/package-gomoku.mjs": "810b7a3e58a7609aa47170fc509d1303468731638d9d66727f86705cf57bdcab",
+    "tests/unit/gomoku-package.test.ts": "ac1ec362d44a78c1c653ad3ae085efc94b1fad6336bf906f82961a132e7dfe11",
+    "packages/game-sdk/src/index.ts": "7cac28f2e18b64a995d2980e1d57c4d877387ef1231a83e9f7b877197140a8c3",
+    "apps/api/src/registry/package-runtime.ts": "c92504b1a982e28198d68cf3b598b7cce5f88e7440f2257a7001cb2e919e77c1",
+    "apps/api/src/catalog/game-package.ts": "bf310e4dd4958afe06b91cf14ece1d09a4bfc2859731a983d96687fa02b9a00c",
+    "apps/api/src/catalog/package-art.ts": "b4af59861833180cac85ad873b20c55969a51c475b6413cbba4770ac7bd7dd40",
+    "apps/api/src/errors.ts": "afa3d78ef9c2652db7a91f5644dc00d11684f17b67c48dfcbca4fceb459cddd1"
+  },
+  "adaptations": [
+    "apps/api/src/errors.ts: type-only ErrorCode import points to an extracted platform error-code snapshot"
+  ]
+}
