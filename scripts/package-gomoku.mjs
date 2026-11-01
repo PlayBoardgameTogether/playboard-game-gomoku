@@ -2,16 +2,29 @@ import { Buffer } from 'node:buffer';
 import { URL } from 'node:url';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { zipSync } from 'fflate';
+import { chromium } from '@playwright/test';
 
 const base = new URL('../game-packages/gomoku/', import.meta.url);
 const files = {};
 const descriptor = JSON.parse(await readFile(new URL('game.json', base), 'utf8'));
 descriptor.presentation = {};
-for (const kind of ['icon', 'cover', 'background']) {
-  const png = await readFile(new URL('../game-packages/gomoku/art/' + kind + '.png', import.meta.url));
-  if (png.length > 320 * 1024) throw new Error(kind + ' exceeds artwork limit');
-  descriptor.presentation[kind] = 'data:image/png;base64,' + png.toString('base64');
+const browser = await chromium.launch();
+try {
+  for (const [kind, width, height] of [['icon', 256, 256], ['cover', 1200, 675], ['background', 1200, 675]]) {
+    const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: 1 });
+    const svg = await readFile(new URL(`art/${kind}.svg`, base), 'utf8');
+    await page.setContent(`<style>body{margin:0}svg{display:block;width:100vw;height:100vh}</style>${svg}`);
+    const png = await page.screenshot({ type: 'png' });
+    if (png.length > 320 * 1024) throw new Error(`${kind} exceeds the package artwork limit`);
+    descriptor.presentation[kind] = `data:image/png;base64,${png.toString('base64')}`;
+    await page.close();
+  }
+} finally {
+  await browser.close();
 }
+const avatar = await readFile(new URL('../game-packages/gomoku/art/icon.png', import.meta.url));
+if (avatar.length > 320 * 1024) throw new Error('Avatar exceeds artwork limit');
+descriptor.presentation.icon = 'data:image/png;base64,' + avatar.toString('base64');
 files['game.json'] = Buffer.from(JSON.stringify(descriptor));
 files['server.js'] = await readFile(new URL('server.txt', base));
 const client = await readFile(new URL('client.html', base), 'utf8');
