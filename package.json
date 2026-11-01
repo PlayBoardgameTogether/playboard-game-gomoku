@@ -11,7 +11,7 @@
   "scripts": {
     "test": "vitest run tests/unit",
     "build": "node scripts/package-gomoku.mjs",
-    "verify": "vitest run tests/release.test.ts"
+    "verify": "vitest run tests/release.test.ts tests/player-names.test.ts"
   },
   "devDependencies": {
     "@playwright/test": "1.55.0",

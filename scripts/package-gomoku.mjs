@@ -27,7 +27,7 @@ files['server.js'] = await readFile(new URL('server.txt', base));
 const client = await readFile(new URL('client.html', base), 'utf8');
 if (!client.includes('__GOMOKU_BACKGROUND__')) throw new Error('Missing background placeholder');
 files['client.html'] = Buffer.from(client.replace('__GOMOKU_BACKGROUND__', descriptor.presentation.background));
-const output = new URL('../dist/game-packages/gomoku-1.0.3.zip', import.meta.url);
+const output = new URL('../dist/game-packages/gomoku-1.0.4.zip', import.meta.url);
 await mkdir(new URL('.', output), { recursive: true });
 const bytes = zipSync(files, { mtime: new Date('2026-10-04T00:00:00Z'), level: 9 });
 await writeFile(output, bytes);
