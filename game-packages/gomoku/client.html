@@ -44,6 +44,10 @@ dialog h2 { margin-top:0; }
 dialog p { font-size:14px; }
 dialog button { min-height:44px; padding:8px 20px; }
 @media(max-width:400px){main{padding:8px}#board{border-width:12px}.stone.win{outline-width:2px}#confirm{padding:12px 14px}}
+#identity, #status { min-width: 0; overflow-wrap: anywhere; }
+header { display: grid; grid-template-columns: auto minmax(0, 1fr); }
+header h1 { white-space: nowrap; }
+#identity { grid-column: 1 / -1; }
 </style>
 </head>
 <body>
@@ -60,6 +64,12 @@ dialog button { min-height:44px; padding:8px 20px; }
 <button type="button">关闭说明</button>
 </dialog>
 <script>
+let playerNames = {};
+function playerName(seatId, ownSeatId, fallback) {
+  const raw = Object.hasOwn(playerNames, seatId) ? playerNames[seatId] : undefined;
+  const name = typeof raw === 'string' ? raw.trim() : '';
+  return name ? name + (seatId === ownSeatId ? '（你）' : '') : fallback;
+}
 let view = null, busy = false, pending = false, selected = null, focusIndex = 112;
 const board = document.getElementById('board'), confirm = document.getElementById('confirm');
 const rules = document.querySelector('dialog');
@@ -98,10 +108,10 @@ for (let y = 0; y < 15; y++) {
 function render() {
   if (!view) return;
   const color = view.players.find(player => player.seatId === view.you)?.color;
-  document.getElementById('identity').textContent = color ? '你执' + (color === 1 ? '黑' : '白') : '公开棋盘';
+  document.getElementById('identity').textContent = view.players.map(p => playerName(p.seatId, view.you, p.seatId === view.you ? '你' : '对手') + ' · ' + (p.color === 1 ? '黑棋' : '白棋')).join(' / ');
   document.getElementById('status').textContent = view.finished
-    ? (view.winner ? (view.winner === view.you ? '你获胜了' : (view.players.find(player => player.seatId === view.winner)?.color === 1 ? '黑棋获胜' : '白棋获胜')) : '满盘和棋')
-    : (pending || busy ? '正在处理落子…' : (view.you === view.currentSeat ? '轮到你落子' : '等待' + (view.moveCount % 2 === 0 ? '黑棋' : '白棋') + '落子'));
+    ? (view.winner ? playerName(view.winner, view.you, view.players.find(player => player.seatId === view.winner)?.color === 1 ? '黑棋' : '白棋') + '获胜' : '满盘和棋')
+    : (pending || busy ? '正在处理落子…' : (view.you === view.currentSeat ? '轮到你落子' : '等待' + playerName(view.currentSeat, view.you, view.moveCount % 2 === 0 ? '黑棋' : '白棋') + '落子'));
   document.getElementById('last').textContent = view.last ? '第 ' + view.moveCount + ' 手 · 最后落子 ' + coord(view.last.x, view.last.y) : '黑先白后 · 连成五子获胜';
   points.forEach((point, index) => {
     const x = index % 15, y = Math.floor(index / 15), stone = view.board[index];
@@ -144,6 +154,7 @@ window.addEventListener('message', event => {
   const next = event.data.view;
   if (!next || next.size !== 15 || !Array.isArray(next.board) || next.board.length !== 225) return;
   if (!view || next.moveCount !== view.moveCount || next.currentSeat !== view.currentSeat || next.you !== view.you) selected = null;
+  playerNames = event.data.playerNames && typeof event.data.playerNames === 'object' ? event.data.playerNames : {};
   view = next; busy = !!event.data.busy; pending = false;
   if (selected && (!canPlay() || view.board[selected.y * 15 + selected.x])) selected = null;
   render();
