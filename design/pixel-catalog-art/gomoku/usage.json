@@ -1,0 +1,13 @@
+{
+  "role": "game-avatar",
+  "source": "icon-source.png",
+  "sourceSha256": "88366b0ce0809767716d63678242d634023c372da005c7b53b2be3770643756f",
+  "userSelected": true,
+  "export": "game-packages/gomoku/art/icon.png",
+  "size": [
+    512,
+    512
+  ],
+  "fit": "contain",
+  "backgroundUsage": false
+}
