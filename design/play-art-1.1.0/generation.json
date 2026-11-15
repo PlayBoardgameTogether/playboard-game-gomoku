@@ -1,0 +1,51 @@
+{
+  "version": "1.1.0",
+  "kind": "presentation-art",
+  "generator": "built-in image_gen",
+  "license": "GPL-3.0-only",
+  "rulesChanged": false,
+  "assets": [
+    {
+      "game": "gomoku",
+      "role": "icon",
+      "prompt": "Use case: stylized-concept. NEW original artwork for a premium PlayBoard board game platform. Sophisticated richly detailed fine PIXEL ART, visible tiny square pixel clusters, tactile physical board game pieces, refined material textures, soft daylight, restrained highlights and natural shadows, mature inviting mood, clear readable silhouette. Coordinated natural wood and dark navy with theme-specific colors. No UI, no paragraphs, no title, no brand logo, no watermark, no border. Avoid generic flat vector, blurry painterly style, glossy casino, low detail cartoon. Asset: square 1024x1024 game avatar. Close-up central iconic arrangement of the main game objects, all important edges visible, 8% breathing room, instantly recognizable even at 64px. Subject: a refined wooden Go-style grid board with glossy black and ivory white stones, calm decisive diagonal arrangement, polished walnut, subtle linen, no chess pieces.",
+      "original": "design/play-art-1.1.0/gomoku/icon-original.png",
+      "source": "game-packages/gomoku/art/play-1.1.0/icon.png",
+      "originalSha256": "555329535ec8a70c3103b9cdf4f72e7f4e20f08d5bd97108b118b206da2f04a0",
+      "sourceSha256": "96bcb8929b0987e9ecb521059369f3731a37b4220a1608538614bbce8effabdf",
+      "webp": "gomoku-icon.webp",
+      "webpSha256": "b9a0c9bc4d7d3617a5d8e20b324950d6ecd36bd5dcb70d90ac05a876b4de06dc",
+      "width": 512,
+      "height": 512,
+      "bytes": 103174
+    },
+    {
+      "game": "gomoku",
+      "role": "cover",
+      "prompt": "Use case: stylized-concept. NEW original artwork for a premium PlayBoard board game platform. Sophisticated richly detailed fine PIXEL ART, visible tiny square pixel clusters, tactile physical board game pieces, refined material textures, soft daylight, restrained highlights and natural shadows, mature inviting mood, clear readable silhouette. Coordinated natural wood and dark navy with theme-specific colors. No UI, no paragraphs, no title, no brand logo, no watermark, no border. Avoid generic flat vector, blurry painterly style, glossy casino, low detail cartoon. Asset: landscape 16:10 game cover illustration. Compelling low three-quarter close view across the playable board and pieces, a small scene that makes the viewer want to sit down and play, strong foreground focal point, room to crop safely. Subject: a refined wooden Go-style grid board with glossy black and ivory white stones, calm decisive diagonal arrangement, polished walnut, subtle linen, no chess pieces.",
+      "original": "design/play-art-1.1.0/gomoku/cover-original.png",
+      "source": "game-packages/gomoku/art/play-1.1.0/cover.png",
+      "originalSha256": "93d2c7d7e1dca4315bc2699067562eaf474a8a91817622bc651fa0d3c13fce7b",
+      "sourceSha256": "e13ec2f67ea328f6be288bcae08b61fba6a8239e9eb4ad89f5f85f2511232e2f",
+      "webp": "gomoku-cover.webp",
+      "webpSha256": "935e582c45b0065e692069bec679039a009a9ede4fc5b32b595b62181f961762",
+      "width": 960,
+      "height": 600,
+      "bytes": 237758
+    },
+    {
+      "game": "gomoku",
+      "role": "background",
+      "prompt": "Use case: stylized-concept. NEW original artwork for a premium PlayBoard board game platform. Sophisticated richly detailed fine PIXEL ART, visible tiny square pixel clusters, tactile physical board game pieces, refined material textures, soft daylight, restrained highlights and natural shadows, mature inviting mood, clear readable silhouette. Coordinated natural wood and dark navy with theme-specific colors. No UI, no paragraphs, no title, no brand logo, no watermark, no border. Avoid generic flat vector, blurry painterly style, glossy casino, low detail cartoon. Asset: wide 16:9 immersive background original art. Rich thematic environment extending around a softly lit tabletop in the foreground, detailed atmosphere at the edges, calm low contrast central area suitable behind game UI, no embedded interface. Subject: a refined wooden Go-style grid board with glossy black and ivory white stones, calm decisive diagonal arrangement, polished walnut, subtle linen, no chess pieces.",
+      "original": "design/play-art-1.1.0/gomoku/background-original.png",
+      "source": "game-packages/gomoku/art/play-1.1.0/background.png",
+      "originalSha256": "7dbe847ccbd2e60a61939ee3372f6775efc48eb5eef0af4a52afd3f68f6d30b7",
+      "sourceSha256": "9782019d7d8d69ba11a5d59b08112245bdefc985d2bfa07aa25569a11ec47628",
+      "webp": "gomoku-background.webp",
+      "webpSha256": "79ef33bf8296d39a9af9550b4a7088166cde80b67e344f253d2b09acaf606a41",
+      "width": 1280,
+      "height": 720,
+      "bytes": 342014
+    }
+  ]
+}
