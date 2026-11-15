@@ -1,0 +1,29 @@
+{
+  "version": "1.1.0",
+  "kind": "presentation-art",
+  "game": "gomoku",
+  "ruleVersionUnchanged": true,
+  "assets": [
+    {
+      "role": "icon",
+      "file": "icon.png",
+      "sha256": "96bcb8929b0987e9ecb521059369f3731a37b4220a1608538614bbce8effabdf",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "role": "cover",
+      "file": "cover.png",
+      "sha256": "e13ec2f67ea328f6be288bcae08b61fba6a8239e9eb4ad89f5f85f2511232e2f",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "role": "background",
+      "file": "background.png",
+      "sha256": "9782019d7d8d69ba11a5d59b08112245bdefc985d2bfa07aa25569a11ec47628",
+      "width": 1280,
+      "height": 720
+    }
+  ]
+}
